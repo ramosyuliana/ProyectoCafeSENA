@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cafetería Central - Menú Principal</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "primary-dark": "#d66e0b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                        "card-light": "#ffffff",
+                        "card-dark": "#2d241e",
+                        "text-main": "#181411",
+                        "text-secondary": "#897561",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af; 
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-text-main dark:text-gray-100 flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-card-dark/90 backdrop-blur-md border-b border-[#f4f2f0] dark:border-white/10 px-6 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">restaurant_menu</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-text-main dark:text-white">Cafetería Central</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors text-sm font-semibold" href="#">Inicio</a>
+<a class="text-primary text-sm font-bold" href="#">Menú</a>
+<a class="text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors text-sm font-semibold" href="#">Mis Pedidos</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex flex-col items-end mr-2">
+<span class="text-xs text-text-secondary dark:text-gray-400">Saldo disponible</span>
+<span class="text-sm font-bold text-text-main dark:text-white">$24.50</span>
+</div>
+<button class="relative flex size-10 items-center justify-center rounded-full bg-white border border-gray-200 dark:bg-white/5 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 transition-colors group">
+<span class="material-symbols-outlined text-text-main dark:text-white group-hover:text-primary">shopping_cart</span>
+<span class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-[#221910]">3</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full overflow-hidden border border-gray-200 dark:border-white/10">
+<img alt="User avatar" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-euQJ_7E69eQjONNAyrGyLZ926nkocIvAqihTpKF4NWBaQPATt39bEXDjLQfQEShx00wCGoX_F62U-MIv2_w5nZeh-RtGh8mGu9-SXklsnJZqZEoJnEJgzSMzeU7ZMvYrPSRjqV5Mzd4Zlrx7V5xLXQL2cLurnZyNINAykubVp2OM11mZq9Zd6dzquzN5otypLOLosyBk7sWKdyzPaNB4i0lWCUJNvVcKsy9HRKfA03pZb1Wm_Seeo3g55tZICYyDi-mVe7xWfAU"/>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow w-full max-w-7xl mx-auto p-6 md:p-8 lg:p-10 flex flex-col lg:flex-row gap-8">
+<!-- Left Column: Menu -->
+<div class="flex-1 flex flex-col gap-8">
+<!-- Hero / Promo Banner -->
+<div class="relative w-full rounded-2xl overflow-hidden bg-gradient-to-r from-gray-900 to-gray-800 shadow-lg min-h-[200px] flex items-center">
+<div class="absolute inset-0 opacity-40 bg-cover bg-center" data-alt="Dark moody food photography background showing ingredients" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDc7VsfsTPzquEC-Hc0pVUh9oTghHPlKRxFUbanVwI1unRnw4K4mAsdGyVnRqTN5ZJWtAzYp6ikjHCHXkKGRBz9pQFdnm4Gn1-G3P1Gfp6rI3ofKKZs0E0RkkfuH_DjSiy4FiE27lvE1I8k5cwCmlDVsqGwb44N_iq-aLF53ZanhEyDJdgqM9cs6O0LLzUA5LYBWtqzIEa62ViFmL3L0Nl9kAfIDIM-j6QLqF2Ei8WNCzT63P_mqfBKiCMqpf4BWx_6F51hjC7mlio');"></div>
+<div class="relative z-10 p-8 md:p-10 w-full md:w-2/3">
+<span class="inline-block px-3 py-1 bg-primary text-white text-xs font-bold uppercase tracking-wider rounded-full mb-3">Oferta del día</span>
+<h2 class="text-3xl md:text-4xl font-black text-white leading-tight mb-2">¡Combo Hamburguesa Doble!</h2>
+<p class="text-gray-200 mb-6 text-sm md:text-base">Incluye papas medianas y bebida por solo $8.99. Disponible hasta las 2:00 PM.</p>
+<button class="bg-white text-text-main hover:bg-gray-100 px-6 py-3 rounded-full font-bold text-sm transition-colors flex items-center gap-2">
+                        Ordenar Ahora
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Search & Filter Bar -->
+<div class="flex flex-col md:flex-row gap-4 justify-between items-center sticky top-24 z-30 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur py-2 -mx-2 px-2 md:static md:bg-transparent md:backdrop-blur-none md:p-0 md:m-0">
+<!-- Tabs -->
+<div class="flex p-1 bg-white dark:bg-white/5 rounded-full border border-gray-200 dark:border-white/10 overflow-x-auto w-full md:w-auto scrollbar-hide">
+<button class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-white shadow-sm transition-all whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px] icon-filled">lunch_dining</span>
+<span class="font-bold text-sm">Comida Rápida</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-2.5 rounded-full text-text-secondary hover:text-text-main hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/10 transition-all whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">cookie</span>
+<span class="font-bold text-sm">Snacks</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-2.5 rounded-full text-text-secondary hover:text-text-main hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/10 transition-all whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">local_cafe</span>
+<span class="font-bold text-sm">Bebidas</span>
+</button>
+</div>
+<!-- Search -->
+<div class="relative w-full md:w-80">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border-none rounded-xl bg-white dark:bg-white/5 text-text-main dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-primary/50 text-sm shadow-sm" placeholder="Buscar en el menú..." type="text"/>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-primary/20 flex flex-col h-full">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-3">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Juicy beef burger with cheese and lettuce" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCTxDScanR6gyFaZK9QxWmtHFBtbLljibHVO4Hl6P4kdwIiGN2xuEWQYGbNMjbbTZ4UCUjGOIDEJjFGQZQJlmxkiT_AGmJ0h9i3r8vlZc1Hqf_JjVBGCHKihsoi7dVHLYKX05kMzjmM2GbJXKxZUB3U9kcjzV7OPMzRHqRCnnZz8kWqHtE4QCglwyb5i_wOD59NuMB303rfGq61JCqO2Y3owPeMaC76ehsjzz2zm9hc3nY4A5kn_PehnUGsnYwVyX7amlN0_7mqflk');"></div>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            Stock: 12
+                        </div>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight">Hamburguesa Clásica</h3>
+<span class="text-lg font-black text-primary">$5.50</span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-xs mb-4 line-clamp-2">Carne de res, queso cheddar, lechuga fresca, tomate y nuestra salsa especial.</p>
+<div class="mt-auto pt-3 border-t border-dashed border-gray-200 dark:border-white/10 flex items-center gap-2">
+<div class="flex items-center border border-gray-200 dark:border-white/10 rounded-full h-9">
+<button class="w-8 h-full flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="w-6 text-center text-sm font-bold text-text-main dark:text-white">1</span>
+<button class="w-8 h-full flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+<button class="flex-1 h-9 bg-primary hover:bg-primary-dark text-white rounded-full text-sm font-bold shadow-md shadow-primary/30 transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                                Agregar
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-primary/20 flex flex-col h-full">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-3">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Crispy fried chicken sandwich with sauce" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFsHltqRHSkqOlfRLPL1u_e_Z5iEHwB_TBjfDujoh0gaWn7SCqUBtFuLmyfdHZ_Pd1SpDX8QshHFvFKLAtBGXVOlXVPPv3grRHCRWO6GLjZPvSmrqzD7t6Jt8rK4xxYKZOc4ttkbsaei7xuBp0vqvRSsJfCCqAX36KjUtJ77vAyAV9X1AeOKEYLmp8FtxDyX21MV7agFzd9uhk44OOgtFPtV1ae1QEnNMsoxjePK9MD4_a0eRbyrUfweicidPq4KfTAMeqMwDTSns');"></div>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 text-orange-500">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                            Pocos: 3
+                        </div>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight">Sándwich de Pollo</h3>
+<span class="text-lg font-black text-primary">$4.50</span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-xs mb-4 line-clamp-2">Pechuga de pollo crujiente, pepinillos y mayonesa en pan brioche.</p>
+<div class="mt-auto pt-3 border-t border-dashed border-gray-200 dark:border-white/10 flex items-center gap-2">
+<button class="w-full h-9 bg-primary hover:bg-primary-dark text-white rounded-full text-sm font-bold shadow-md shadow-primary/30 transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                                Agregar al carrito
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-primary/20 flex flex-col h-full">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-3">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Slice of pepperoni pizza with melted cheese" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGKTUIu7EeG93pzJ0kPsa156_HBatx4HQ_TGcMYZsIRHh_4T8CpY6dx30wO7Sb4hsQpv7zx0I_h9BnpyS8Z31DZis4gMH339yUhuzYIbotgRT5e7SF_WMipKKtM8KAlFx7lLA14gsFs6qyc1nSDeAywV77T9lwXQVapdPcXJBQBMunZVV41xZ3Oq_atWTe0dD9yuCqSTG2jw8_OOxdmYXRX0A3Eoven73JD0mx_xUP6G8Xo_w9dXghBV78eSNFCFStxMxqv3Rcd5w');"></div>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            Stock: 24
+                        </div>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight">Pizza Pepperoni (Porción)</h3>
+<span class="text-lg font-black text-primary">$2.50</span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-xs mb-4 line-clamp-2">Nuestra famosa masa delgada con salsa de tomate casera y mucho pepperoni.</p>
+<div class="mt-auto pt-3 border-t border-dashed border-gray-200 dark:border-white/10 flex items-center gap-2">
+<button class="w-full h-9 bg-background-light dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-text-main dark:text-white rounded-full text-sm font-bold transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                Agregar
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 4 (Out of Stock) -->
+<div class="group bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent opacity-80 flex flex-col h-full relative overflow-hidden">
+<div class="absolute inset-0 bg-white/60 dark:bg-black/60 z-20 flex items-center justify-center backdrop-blur-[1px]">
+<span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg transform rotate-[-12deg]">Agotado</span>
+</div>
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-3 grayscale">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Classic cheeseburger with bacon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQDKzpRKml-gVwgpvvECjP9msjt8vQY5xZnjZtzgwgSu9egeEAnBeRr_iX3LjQzZ3JGfa5W8qZ2ueYib-4_wQS969ctw2_S2SJp9FLT3vPBB1V5fy6VxKfx1nuIwZ2xhpeCQeoQW7ayMIyD4JY4FpSudo0dr3FFpvVheiUi7N8BGzRPd5jm5gIHeRObGmnkYnVEqv46GNxWBIGfVKknv6TKPGf7JNeyhQEoJIP4FUwZSKOSVaqLRQq04_WZeD7yZiKulFsvp9qc60');"></div>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight">Hamburguesa Bacon</h3>
+<span class="text-lg font-black text-text-secondary">$6.00</span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-xs mb-4 line-clamp-2">Con doble tocino ahumado y salsa BBQ.</p>
+<div class="mt-auto pt-3 border-t border-dashed border-gray-200 dark:border-white/10 flex items-center gap-2">
+<button class="w-full h-9 bg-gray-100 dark:bg-white/5 text-gray-400 rounded-full text-sm font-bold cursor-not-allowed flex items-center justify-center gap-2" disabled="">
+                                No disponible
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-primary/20 flex flex-col h-full">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-3">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Gourmet hamburger with shiny bun" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsJ_LYAHWcmX0wPqlkwjvH6ipRwvsdebGM-S0MTz-zK0Yd0hpaD_0NgmR7p-2hEUUMyzrMGDSyLuXdyCRGv9UCL1EpoOQSkx7iLHQi85ycamaLkHDszWyGICVZKW_oNz2arnugpXcp3Y_tAzcv44AwVBwQsyehKrmyYIuFLtFWSndkGHVq_wxBwKVvASGkp89AdLSdsOjdkbPdIzH3dEgpSK08ReCT98XqB1qb5ThJR0Wf0HZZHS-ET4Kj5RmY5pjdQCegpSKqGIY');"></div>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            Stock: 8
+                        </div>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight">Hamburguesa Deluxe</h3>
+<span class="text-lg font-black text-primary">$7.50</span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-xs mb-4 line-clamp-2">Queso suizo, champiñones salteados y cebolla caramelizada.</p>
+<div class="mt-auto pt-3 border-t border-dashed border-gray-200 dark:border-white/10 flex items-center gap-2">
+<button class="w-full h-9 bg-background-light dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-text-main dark:text-white rounded-full text-sm font-bold transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                Agregar
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-card-light dark:bg-card-dark rounded-xl p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-primary/20 flex flex-col h-full">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-3">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Pepperoni pizza slice close up" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDk7swnBYn97eGttmW5Qy-nrbXnzPFUYh1BozbfzbCvH6ZGKh-pcsV-io5ZParwphYoIc4otxRO5Iw-z-0YAREMRnTaCYX8NL2ETZdxTg1E9cOzq9ZGryvh6k01LU9M9dvJG-f7WaiEltpq_YOLYnfkZOkAEwLxO3beRhOwmGAQ1BV18vayaC8KczLhs3oota0IWwsRnp-lfKVEnM4kvLFY9nuvYfy3WECbkjfH5bgB8HsdXoa3veJVMAgefF_7homjUyemV3_18Qc');"></div>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            Stock: 15
+                        </div>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight">Pizza Queso (Porción)</h3>
+<span class="text-lg font-black text-primary">$2.00</span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-xs mb-4 line-clamp-2">Mezcla de cuatro quesos sobre nuestra masa tradicional.</p>
+<div class="mt-auto pt-3 border-t border-dashed border-gray-200 dark:border-white/10 flex items-center gap-2">
+<button class="w-full h-9 bg-background-light dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-text-main dark:text-white rounded-full text-sm font-bold transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                Agregar
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Cart / Sidebar -->
+<div class="lg:w-[360px] flex-shrink-0">
+<div class="sticky top-28 bg-white dark:bg-card-dark rounded-xl shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col max-h-[calc(100vh-140px)]">
+<div class="p-5 border-b border-gray-100 dark:border-white/10 bg-gray-50/50 dark:bg-white/5 flex items-center justify-between">
+<h2 class="font-bold text-lg text-text-main dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+                        Tu Pedido
+                    </h2>
+<span class="text-xs font-semibold bg-primary/10 text-primary px-2 py-1 rounded-md">3 ítems</span>
+</div>
+<div class="flex-1 overflow-y-auto p-5 space-y-4">
+<!-- Cart Item 1 -->
+<div class="flex gap-3">
+<div class="w-16 h-16 rounded-lg bg-gray-100 dark:bg-white/10 bg-cover bg-center flex-shrink-0" data-alt="Small thumbnail of burger" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxkySvfSqYqbseBxugR9Y-Aa8UomFQUp1Bx4x0WUI_Fpw9EITpzdLa82fqaRK6E4rniI46A7tgEMLyvMo59yiHapI2KLbxlOmIdLxFHwLR08rmnRERVohvKyLTk3CtbXRgBIPxJRIhoh7yP3_lGsQ3dDQbNO_13A3oJbDtKv2lO7l0iJBhQJ9pZdUiP6-JgKANr5aXdPBXrIP_got3qNmasYD3ZCl-kjmXM-kqPxlmA_P00ZT0xDQvBIivAlMf6zejCuMhn55rRow');"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-sm font-bold text-text-main dark:text-white line-clamp-1">Hamburguesa Clásica</h4>
+<span class="text-sm font-bold text-text-main dark:text-white">$5.50</span>
+</div>
+<p class="text-xs text-text-secondary dark:text-gray-400 mb-2">Sin cebolla</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 bg-gray-50 dark:bg-white/5 rounded-md p-0.5">
+<button class="w-6 h-6 flex items-center justify-center bg-white dark:bg-white/10 rounded shadow-sm text-text-secondary hover:text-primary">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="text-xs font-bold w-3 text-center">1</span>
+<button class="w-6 h-6 flex items-center justify-center bg-white dark:bg-white/10 rounded shadow-sm text-text-secondary hover:text-primary">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+<button class="text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Cart Item 2 -->
+<div class="flex gap-3">
+<div class="w-16 h-16 rounded-lg bg-gray-100 dark:bg-white/10 bg-cover bg-center flex-shrink-0" data-alt="Small thumbnail of pizza slice" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAkJbs0cb1nWFMfcxl5JyLJcvexzcMJEiVC1qVh_cDfjCXZw4p2-X94vqNoTJ2Nw3vZiwZ7G_tlgmYZzcMXiCbMheMZasC_Fqc_RV2UYdjZ0jNlPIpB-Mx-B2qHIdatyvFkzsOU3B5eoB_iILjVdzzAA_30ZQ6Lgjg6IM9S1X3-PBOQ5k2zdo8TpvRn0buP_XTA-9b9YF3kKJUUP9hiOSeAownZ_d1uFbUpsLByJc4fumuUoQtV2-68T7_t95U1diNhBi7GSq9lIDs');"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-sm font-bold text-text-main dark:text-white line-clamp-1">Pizza Queso (x2)</h4>
+<span class="text-sm font-bold text-text-main dark:text-white">$4.00</span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-2 bg-gray-50 dark:bg-white/5 rounded-md p-0.5">
+<button class="w-6 h-6 flex items-center justify-center bg-white dark:bg-white/10 rounded shadow-sm text-text-secondary hover:text-primary">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="text-xs font-bold w-3 text-center">2</span>
+<button class="w-6 h-6 flex items-center justify-center bg-white dark:bg-white/10 rounded shadow-sm text-text-secondary hover:text-primary">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+<button class="text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="p-5 border-t border-gray-100 dark:border-white/10 bg-gray-50/80 dark:bg-white/5 backdrop-blur-sm">
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm text-text-secondary dark:text-gray-400">Subtotal</span>
+<span class="text-sm font-bold text-text-main dark:text-white">$9.50</span>
+</div>
+<div class="flex justify-between items-center mb-4">
+<span class="text-sm text-text-secondary dark:text-gray-400">Impuestos (10%)</span>
+<span class="text-sm font-bold text-text-main dark:text-white">$0.95</span>
+</div>
+<div class="flex justify-between items-center mb-6 pt-2 border-t border-gray-200 dark:border-white/10">
+<span class="text-base font-bold text-text-main dark:text-white">Total</span>
+<span class="text-xl font-black text-primary">$10.45</span>
+</div>
+<button class="w-full py-3.5 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold text-sm shadow-lg shadow-primary/25 transition-all active:scale-95 flex items-center justify-center gap-2">
+                        Confirmar Pedido
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto bg-white dark:bg-card-dark border-t border-gray-100 dark:border-white/5 py-8">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-text-main dark:text-white">
+<span class="material-symbols-outlined text-primary">restaurant_menu</span>
+<span class="font-bold">Cafetería Central</span>
+</div>
+<p class="text-sm text-text-secondary dark:text-gray-500">© 2024 Cafetería Central. Todos los derechos reservados.</p>
+<div class="flex gap-4">
+<a class="text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-primary" href="#">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-primary" href="#">
+<span class="sr-only">Instagram</span>
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.315 2zm-1.087 2.002H10.8c-2.583 0-2.898.01-3.905.056-1.006.046-1.545.215-1.907.356-.475.184-.813.402-1.17.758-.357.357-.574.695-.758 1.17-.141.362-.31 .9-.356 1.907-.046 1.007-.056 1.322-.056 3.905 0 2.583.01 2.898.056 3.905.046 1.006.215 1.545.356 1.907.184.475.402.813.758 1.17.357.357.695.574 1.17.758.362.141.9.31 1.907.356 1.007.046 1.322.056 3.905.056 2.583 0 2.898-.01 3.905-.056 1.006-.046 1.545-.215 1.907-.356.475-.184.813-.402 1.17-.758.357-.357.574-.695.758-1.17.141-.362.31-.9.356-1.907.046-1.007.056-1.322.056-3.905 0-2.583-.01-2.898-.056-3.905-.046-1.006-.215-1.545-.356-1.907-.184-.475-.402-.813-.758-1.17-.357-.357-.695-.574-1.17-.758-.362-.141-.9-.31-1.907-.356-.63-.028-2.618-.046-3.968-.046zM12.315 7.18c2.822 0 5.11 2.288 5.11 5.11 0 2.822-2.288 5.11-5.11 5.11-2.822 0-5.11-2.288-5.11-5.11 0-2.822 2.288-5.11 5.11-5.11zm0 2.002a3.108 3.108 0 100 6.216 3.108 3.108 0 000-6.216zM17.72 5.09c.66 0 1.2.538 1.2 1.198 0 .66-.54 1.2-1.2 1.2-.66 0-1.2-.54-1.2-1.2 0-.66.54-1.2 1.2-1.2z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

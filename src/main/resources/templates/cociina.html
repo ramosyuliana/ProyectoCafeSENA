@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panel de Cocina</title>
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal scrolling if needed, or internal lists */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-x-hidden min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#dbe0e6] bg-white dark:bg-[#1a2632] dark:border-[#2a3642] px-6 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[28px]">soup_kitchen</span>
+</div>
+<div>
+<h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Cocina Central</h2>
+<p class="text-[#617589] dark:text-[#94a3b8] text-xs font-medium">Cafetería Web • Pedidos en Vivo</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2 px-4 py-2 bg-[#f0f2f4] dark:bg-[#25323e] rounded-lg">
+<span class="material-symbols-outlined text-[#617589] dark:text-[#94a3b8]">schedule</span>
+<span class="text-[#111418] dark:text-white font-bold text-sm">12:45 PM</span>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f4] dark:bg-[#25323e] text-[#111418] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors hover:bg-[#e0e2e4] dark:hover:bg-[#2f3e4c]">
+<span class="truncate">Modo Ocupado</span>
+</button>
+<button class="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-primary text-white transition-colors hover:bg-primary/90">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 border border-white dark:border-[#1a2632]"></span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col p-6 gap-6 max-w-[1600px] mx-auto w-full">
+<!-- Summary Dashboard (FeatureSection adapted) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Stat Card 1 -->
+<div class="flex items-center gap-4 rounded-xl border border-[#dbe0e6] dark:border-[#2a3642] bg-white dark:bg-[#1a2632] p-5 shadow-sm">
+<div class="flex items-center justify-center size-12 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined text-[24px]">pending_actions</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">5</h2>
+<p class="text-[#617589] dark:text-[#94a3b8] text-sm font-medium">Pendientes</p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="flex items-center gap-4 rounded-xl border border-[#dbe0e6] dark:border-[#2a3642] bg-white dark:bg-[#1a2632] p-5 shadow-sm">
+<div class="flex items-center justify-center size-12 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined text-[24px]">skillet</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">3</h2>
+<p class="text-[#617589] dark:text-[#94a3b8] text-sm font-medium">En Preparación</p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="flex items-center gap-4 rounded-xl border border-[#dbe0e6] dark:border-[#2a3642] bg-white dark:bg-[#1a2632] p-5 shadow-sm">
+<div class="flex items-center justify-center size-12 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-[24px]">check_circle</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">2</h2>
+<p class="text-[#617589] dark:text-[#94a3b8] text-sm font-medium">Listos para Entrega</p>
+</div>
+</div>
+</div>
+<!-- Kanban Board Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full items-start">
+<!-- Column 1: Pendientes -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between pb-2 border-b-2 border-orange-500">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Pendientes</h3>
+<span class="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs font-bold px-2 py-1 rounded-full">5</span>
+</div>
+<!-- Card 1 -->
+<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm border border-[#dbe0e6] dark:border-[#2a3642] hover:shadow-md transition-shadow group">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">#124</span>
+<h4 class="text-[#111418] dark:text-white text-lg font-bold mt-1">Juan Perez</h4>
+</div>
+<div class="flex items-center gap-1 text-red-600 dark:text-red-400 font-bold text-sm bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>2 min</span>
+</div>
+</div>
+<div class="h-px bg-[#f0f2f4] dark:bg-[#2a3642] my-1"></div>
+<ul class="flex flex-col gap-2 text-sm text-[#111418] dark:text-[#e2e8f0]">
+<li class="flex items-start gap-2">
+<span class="font-bold text-primary min-w-[20px]">1x</span>
+<span>Latte Grande (Leche Almendras)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="font-bold text-primary min-w-[20px]">2x</span>
+<span>Croissant de Jamón y Queso</span>
+</li>
+</ul>
+<div class="mt-2 pt-2 border-t border-[#f0f2f4] dark:border-[#2a3642] flex items-center justify-between gap-3">
+<span class="text-xs text-[#617589] dark:text-[#94a3b8]">Pedido a las 12:40 PM</span>
+<button class="flex-1 flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-primary text-white text-sm font-bold transition-transform active:scale-95 hover:bg-blue-600">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                            Empezar
+                        </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm border border-[#dbe0e6] dark:border-[#2a3642] hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">#125</span>
+<h4 class="text-[#111418] dark:text-white text-lg font-bold mt-1">Maria Gonzalez</h4>
+</div>
+<div class="flex items-center gap-1 text-orange-600 dark:text-orange-400 font-bold text-sm bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>5 min</span>
+</div>
+</div>
+<div class="h-px bg-[#f0f2f4] dark:bg-[#2a3642] my-1"></div>
+<ul class="flex flex-col gap-2 text-sm text-[#111418] dark:text-[#e2e8f0]">
+<li class="flex items-start gap-2">
+<span class="font-bold text-primary min-w-[20px]">1x</span>
+<span>Capuchino Vainilla</span>
+</li>
+</ul>
+<div class="mt-2 pt-2 border-t border-[#f0f2f4] dark:border-[#2a3642] flex items-center justify-between gap-3">
+<span class="text-xs text-[#617589] dark:text-[#94a3b8]">Pedido a las 12:42 PM</span>
+<button class="flex-1 flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-primary text-white text-sm font-bold transition-transform active:scale-95 hover:bg-blue-600">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                            Empezar
+                        </button>
+</div>
+</div>
+<!-- Card 3 (Simple) -->
+<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm border border-[#dbe0e6] dark:border-[#2a3642] hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">#128</span>
+<h4 class="text-[#111418] dark:text-white text-lg font-bold mt-1">Carlos D.</h4>
+</div>
+<div class="flex items-center gap-1 text-[#617589] dark:text-[#94a3b8] font-bold text-sm bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>15 min</span>
+</div>
+</div>
+<div class="h-px bg-[#f0f2f4] dark:bg-[#2a3642] my-1"></div>
+<ul class="flex flex-col gap-2 text-sm text-[#111418] dark:text-[#e2e8f0]">
+<li class="flex items-start gap-2">
+<span class="font-bold text-primary min-w-[20px]">3x</span>
+<span>Té Verde</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="font-bold text-primary min-w-[20px]">1x</span>
+<span>Muffin Arándanos</span>
+</li>
+</ul>
+<div class="mt-2 pt-2 border-t border-[#f0f2f4] dark:border-[#2a3642] flex items-center justify-between gap-3">
+<span class="text-xs text-[#617589] dark:text-[#94a3b8]">Pedido a las 12:45 PM</span>
+<button class="flex-1 flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-primary text-white text-sm font-bold transition-transform active:scale-95 hover:bg-blue-600">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                            Empezar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Column 2: En Preparación -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between pb-2 border-b-2 border-blue-500">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">En Preparación</h3>
+<span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-bold px-2 py-1 rounded-full">3</span>
+</div>
+<!-- Card Active -->
+<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-md border-l-4 border-l-primary border-y border-r border-y-[#dbe0e6] border-r-[#dbe0e6] dark:border-y-[#2a3642] dark:border-r-[#2a3642] relative overflow-hidden">
+<!-- Background pattern/image hint -->
+<div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white/10 to-transparent pointer-events-none"></div>
+<div class="flex justify-between items-start z-10">
+<div>
+<span class="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded">#120</span>
+<h4 class="text-[#111418] dark:text-white text-lg font-bold mt-1">Ana Martinez</h4>
+</div>
+<div class="flex items-center gap-1 text-orange-600 dark:text-orange-400 font-bold text-sm bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px] animate-pulse">timelapse</span>
+<span>1 min</span>
+</div>
+</div>
+<div class="h-px bg-[#f0f2f4] dark:bg-[#2a3642] my-1"></div>
+<!-- Include an image for complex orders if needed -->
+<div class="flex gap-4">
+<div class="flex-1">
+<ul class="flex flex-col gap-2 text-sm text-[#111418] dark:text-[#e2e8f0]">
+<li class="flex items-start gap-2">
+<span class="font-bold text-primary min-w-[20px]">1x</span>
+<span>Bagel Salmón</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="font-bold text-primary min-w-[20px]">1x</span>
+<span>Jugo Naranja Natural</span>
+</li>
+</ul>
+</div>
+<!-- Thumbnail Image -->
+<div class="w-16 h-16 rounded-lg bg-cover bg-center shrink-0" data-alt="Bagel de salmón en primer plano" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA6UFPSrViw2c6JJ-YPH3I2gKtE_oJHOea8LJFiUsVtCgMkQOVwCFdGcpwaJMeUE84U3dJYEA5W9_I-2pwqWxlib20MrinNpBxESeB5QGEnFL69oSBTkm98BxeEonazoK7TnvO4cIbH2WzLTrHz24bEOUwuiUjfy68DU6HN4vXqW3qJTMfAwpCQ07-KYGf9WR93mLvMVD-GU7DuPQRqokhGUd6rVHm9vfKfx3AXyckOam-yuW6rGq7mKiqiIHjgQwdXlUmQHXCvvgU');">
+</div>
+</div>
+<div class="mt-2 pt-2 border-t border-[#f0f2f4] dark:border-[#2a3642] flex items-center justify-between gap-3">
+<span class="text-xs text-[#617589] dark:text-[#94a3b8]">Iniciado hace 4 min</span>
+<button class="flex-1 flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-[#f0f2f4] dark:bg-[#2a3642] text-[#111418] dark:text-white hover:bg-green-100 hover:text-green-700 dark:hover:bg-green-900/30 dark:hover:text-green-300 text-sm font-bold transition-colors">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                            Listo
+                        </button>
+</div>
+</div>
+<!-- Card Active 2 -->
+<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm border border-[#dbe0e6] dark:border-[#2a3642] hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded">#122</span>
+<h4 class="text-[#111418] dark:text-white text-lg font-bold mt-1">Roberto S.</h4>
+</div>
+<div class="flex items-center gap-1 text-[#617589] dark:text-[#94a3b8] font-bold text-sm bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>4 min</span>
+</div>
+</div>
+<div class="h-px bg-[#f0f2f4] dark:bg-[#2a3642] my-1"></div>
+<ul class="flex flex-col gap-2 text-sm text-[#111418] dark:text-[#e2e8f0]">
+<li class="flex items-start gap-2">
+<span class="font-bold text-primary min-w-[20px]">2x</span>
+<span>Americano</span>
+</li>
+</ul>
+<div class="mt-2 pt-2 border-t border-[#f0f2f4] dark:border-[#2a3642] flex items-center justify-between gap-3">
+<span class="text-xs text-[#617589] dark:text-[#94a3b8]">Iniciado hace 1 min</span>
+<button class="flex-1 flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-[#f0f2f4] dark:bg-[#2a3642] text-[#111418] dark:text-white hover:bg-green-100 hover:text-green-700 dark:hover:bg-green-900/30 dark:hover:text-green-300 text-sm font-bold transition-colors">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                            Listo
+                        </button>
+</div>
+</div>
+</div>
+<!-- Column 3: Listos -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between pb-2 border-b-2 border-green-500">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Listos</h3>
+<span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold px-2 py-1 rounded-full">2</span>
+</div>
+<!-- Card Ready -->
+<div class="flex flex-col gap-3 rounded-xl bg-green-50/50 dark:bg-green-900/10 p-4 shadow-sm border border-green-200 dark:border-green-800/50 opacity-90 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded">#118</span>
+<h4 class="text-[#111418] dark:text-white text-lg font-bold mt-1 line-through decoration-slate-400">Luisa F.</h4>
+</div>
+<div class="flex items-center gap-1 text-green-700 dark:text-green-400 font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+</div>
+<ul class="flex flex-col gap-2 text-sm text-[#617589] dark:text-[#94a3b8]">
+<li class="flex items-start gap-2">
+<span class="font-bold min-w-[20px]">1x</span>
+<span>Tostada de Aguacate</span>
+</li>
+</ul>
+<div class="mt-2 pt-2 border-t border-green-200 dark:border-green-800/30 flex items-center justify-between gap-3">
+<span class="text-xs text-[#617589] dark:text-[#94a3b8]">Listo hace 5 min</span>
+<button class="flex-1 flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-white dark:bg-[#1a2632] border border-[#dbe0e6] dark:border-[#2a3642] text-[#111418] dark:text-white text-sm font-medium hover:bg-[#f0f2f4] dark:hover:bg-[#2f3e4c]">
+                            Entregado
+                        </button>
+</div>
+</div>
+<!-- Card Ready 2 -->
+<div class="flex flex-col gap-3 rounded-xl bg-green-50/50 dark:bg-green-900/10 p-4 shadow-sm border border-green-200 dark:border-green-800/50 opacity-90 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded">#119</span>
+<h4 class="text-[#111418] dark:text-white text-lg font-bold mt-1 line-through decoration-slate-400">Pedro J.</h4>
+</div>
+<div class="flex items-center gap-1 text-green-700 dark:text-green-400 font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+</div>
+<ul class="flex flex-col gap-2 text-sm text-[#617589] dark:text-[#94a3b8]">
+<li class="flex items-start gap-2">
+<span class="font-bold min-w-[20px]">2x</span>
+<span>Espresso Doble</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="font-bold min-w-[20px]">1x</span>
+<span>Galleta de Avena</span>
+</li>
+</ul>
+<div class="mt-2 pt-2 border-t border-green-200 dark:border-green-800/30 flex items-center justify-between gap-3">
+<span class="text-xs text-[#617589] dark:text-[#94a3b8]">Listo hace 8 min</span>
+<button class="flex-1 flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-white dark:bg-[#1a2632] border border-[#dbe0e6] dark:border-[#2a3642] text-[#111418] dark:text-white text-sm font-medium hover:bg-[#f0f2f4] dark:hover:bg-[#2f3e4c]">
+                            Entregado
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

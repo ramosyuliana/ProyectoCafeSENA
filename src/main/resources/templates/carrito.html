@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tu Carrito - Cafetería</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "primary-dark": "#d16e0e",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                        "text-main": "#181411",
+                        "text-sub": "#897561",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4d4d4; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ec7f13; 
+        }
+        
+        .no-spinner::-webkit-inner-spin-button, 
+        .no-spinner::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display min-h-screen flex flex-col">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#f4f2f0] dark:border-white/10 px-8 py-4">
+<div class="max-w-[1280px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-4 text-text-main dark:text-white">
+<div class="text-primary size-8 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">coffee</span>
+</div>
+<h2 class="text-2xl font-bold tracking-tight">Cafetería</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-text-main dark:text-white hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="#">Menú</a>
+<a class="text-text-main dark:text-white hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="#">Mis Pedidos</a>
+<a class="text-text-main dark:text-white hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="#">Contacto</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="relative flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all group">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white ring-2 ring-white dark:ring-background-dark group-hover:bg-white group-hover:text-primary">3</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-white dark:border-white/10 shadow-sm cursor-pointer" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsR7yFOjDHWD0tzUUMYlF_5XT_u5bRbsS3TdVRkm2kVWsAiE5kk46E8Se4i2NvFMLD6pNl8nPxUKhdyefM24CUKvQSCLo5cZoP3ydjWS0mnE216-iXuJY_0iYyfMPmeqenueCxPfDqjDsc7aKAWYtH5W3vC8O4Mr8SYfRUZ-HHc7aZ9rFJ6wSs3bx0EO9AQ287innERlsDggIFE9SGV9O1Tfp1pFwqTfhY16zPJd02HA6DpCbQAm1zELJrSd-GVqEAdEOZxcBdJGI");'>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-4 sm:px-8 py-8 lg:py-12">
+<!-- Page Header -->
+<div class="mb-8">
+<h1 class="text-3xl md:text-4xl font-black tracking-tight text-text-main dark:text-white mb-2">Tu Carrito de Compras</h1>
+<p class="text-text-sub dark:text-gray-400 font-medium">Revisa tus productos antes de finalizar tu delicioso pedido.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-8 lg:gap-12 relative">
+<!-- Left Column: Cart Items -->
+<div class="flex-1 flex flex-col gap-6">
+<!-- Cart Header -->
+<div class="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-white/10">
+<span class="text-sm font-bold uppercase tracking-wider text-text-sub dark:text-gray-400">3 Productos</span>
+<button class="text-sm font-bold text-red-500 hover:text-red-600 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+                        Vaciar carrito
+                    </button>
+</div>
+<!-- Item 1 -->
+<div class="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-lg bg-white dark:bg-white/5 border border-transparent hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+<div class="relative shrink-0 overflow-hidden rounded-xl size-24 bg-gray-100">
+<div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close up of a creamy cappuccino in a white cup" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7aLWj5AwPU5vlQG0R95zd07QbfaCU9nxlRqD_qsXF4c-rN9Yz0lKDsnZzMwbRXW5TtqZ5djHa95aUT-MPkuA03z5c1wuXWckI4drOKYvgCo86aFLuPCh4kHV5VZ9Aer2BwbZ9we3gptLmdS8PMn7F_TMkuV-lbTOAGHP8lyb5S4BX_7UnoTb2SElh9dfp7gu9Nudos84xh25QXmVMlCClUK9KAJP7z9jk9NxUwMBR9O87L6cg6spaBETvFQB2IXeo8pJ0QGlfTHM");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight mb-1">Cappuccino Grande</h3>
+<p class="text-sm text-text-sub dark:text-gray-400">Leche de soja, Sin azúcar</p>
+</div>
+<button class="text-gray-400 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400 transition-colors p-1">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-3 bg-background-light dark:bg-white/10 rounded-full px-1 py-1">
+<button class="size-8 flex items-center justify-center rounded-full bg-white dark:bg-background-dark shadow-sm text-text-main hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">remove</span>
+</button>
+<input class="w-8 p-0 text-center bg-transparent border-none text-text-main dark:text-white font-bold no-spinner focus:ring-0" readonly="" type="number" value="2"/>
+<button class="size-8 flex items-center justify-center rounded-full bg-white dark:bg-background-dark shadow-sm text-text-main hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+<div class="text-right">
+<span class="block text-xs text-text-sub dark:text-gray-500 font-medium">$3.50 c/u</span>
+<span class="block text-lg font-bold text-primary">$7.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-lg bg-white dark:bg-white/5 border border-transparent hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+<div class="relative shrink-0 overflow-hidden rounded-xl size-24 bg-gray-100">
+<div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Fresh blueberry muffin with sugar topping" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXSLckORwluDx_EkiRX--gkpeMOeW2FqhaNdmDBSCluay3irSyl9E6LCvsMzuyCw6PJn0TawtI9jf7qGKP5K5eHCDZEXdr99RgnPXpeSVzVbTvkD0yo4MJAp9rNkdvOnP8I9tQc0w8RUu1hwylokq70AUbLb-te7raH4MrHvFZmb9CDO5tnmoW9Hixv0PtNRGFJ5gKfpGjMQPWMp2kL0B3Ui8EAuJ82Fo505pYrfG_bp4-pvdmPN0p8bqPqzry30QGNhtakq77TBs");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight mb-1">Muffin de Arándanos</h3>
+<p class="text-sm text-text-sub dark:text-gray-400">Recién horneado</p>
+</div>
+<button class="text-gray-400 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400 transition-colors p-1">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-3 bg-background-light dark:bg-white/10 rounded-full px-1 py-1">
+<button class="size-8 flex items-center justify-center rounded-full bg-white dark:bg-background-dark shadow-sm text-text-main hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">remove</span>
+</button>
+<input class="w-8 p-0 text-center bg-transparent border-none text-text-main dark:text-white font-bold no-spinner focus:ring-0" readonly="" type="number" value="1"/>
+<button class="size-8 flex items-center justify-center rounded-full bg-white dark:bg-background-dark shadow-sm text-text-main hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+<div class="text-right">
+<span class="block text-xs text-text-sub dark:text-gray-500 font-medium">$2.00 c/u</span>
+<span class="block text-lg font-bold text-primary">$2.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-lg bg-white dark:bg-white/5 border border-transparent hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+<div class="relative shrink-0 overflow-hidden rounded-xl size-24 bg-gray-100">
+<div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Toasted chicken sandwich on whole wheat bread" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQS_OEfxF-eVR-cnPKMLJpiv4QqsNaTf2IFCxhl1Dgh-OiylgSHq9wIJrDy50ClZn-qWz4JjRnnO_wJnjHZUSf4mzquz-09cqn1tfkyJSEr6vO-aY0Kyt3e9CQ8f-6J7Mbp3LT7X9QzstndfN7ElJlzbnIjiH6MA0iQqLqKSVmQ8b7zEjofl_g3lexgoIw8z2K84w9IIRUbMDqhWPKc59rsws9-rGWK9MjNFDdR1D5LecTVsDjMofNGPy5fH-ZXjRsUsFJxttoWZg");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight mb-1">Sandwich de Pollo</h3>
+<p class="text-sm text-text-sub dark:text-gray-400">Pan integral, Sin mayonesa</p>
+</div>
+<button class="text-gray-400 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400 transition-colors p-1">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-3 bg-background-light dark:bg-white/10 rounded-full px-1 py-1">
+<button class="size-8 flex items-center justify-center rounded-full bg-white dark:bg-background-dark shadow-sm text-text-main hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">remove</span>
+</button>
+<input class="w-8 p-0 text-center bg-transparent border-none text-text-main dark:text-white font-bold no-spinner focus:ring-0" readonly="" type="number" value="1"/>
+<button class="size-8 flex items-center justify-center rounded-full bg-white dark:bg-background-dark shadow-sm text-text-main hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+<div class="text-right">
+<span class="block text-xs text-text-sub dark:text-gray-500 font-medium">$5.50 c/u</span>
+<span class="block text-lg font-bold text-primary">$5.50</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Upsell Section -->
+<div class="mt-8 pt-6 border-t border-gray-200 dark:border-white/10">
+<h4 class="text-lg font-bold text-text-main dark:text-white mb-4">¿Se te olvida algo?</h4>
+<div class="flex gap-4 overflow-x-auto pb-4 snap-x">
+<!-- Upsell Item 1 -->
+<div class="snap-start min-w-[160px] p-3 rounded-lg bg-white dark:bg-white/5 border border-gray-100 dark:border-white/5 flex flex-col items-center text-center">
+<div class="rounded-full size-16 bg-cover bg-center mb-2" data-alt="Chocolate chip cookie" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBldk9MjV2S15ux7zhjRCU0XnOvZzkYY97caO73ju0L6C0YpmODFJGQa3s3Y_4x-Dmp0uEZ4qKfB4ykyeJCAC4QkCC8SL7DiqLRnkqKwOVLlEp5j9AWSoaJ6N8G15KVg9XXP2JvGEIZLICdtzrSMLfinlpqQhXDCpRCayhsENrPy9LV7w-vbiJ4rTh-9ZCeS5q5KN0yWUc3BXi_hkVI-6H4KgDb07gG9hq9Ole5pRdhCBMnZxE68VKAZySLKnYTcWam-NlOMsCWgpU");'></div>
+<p class="font-bold text-sm text-text-main dark:text-white">Galleta Choco</p>
+<p class="text-xs text-primary font-bold mb-2">$1.50</p>
+<button class="text-xs px-3 py-1 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-colors">Agregar</button>
+</div>
+<!-- Upsell Item 2 -->
+<div class="snap-start min-w-[160px] p-3 rounded-lg bg-white dark:bg-white/5 border border-gray-100 dark:border-white/5 flex flex-col items-center text-center">
+<div class="rounded-full size-16 bg-cover bg-center mb-2" data-alt="Bottle of sparkling water" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATatORrDpINHaeRyQ_1tFzOvHweoa4nCOL3hYHazSL2LS8v3qYVoPa5X9y-JXS-y5Sg12HOlO6GlZwk4pEk4yuj0PzV6bl3fatJWGkN9Jv70c7IunKSsqjYQ0m4zbag9dbLkyYNuV4cUeZj_LUDxrWsP7nFwdGSKWzLtmpU9AkY3H-Tn6xF4QK2diKOlYCcgZ8H0Tb4xpsJWcZiSc6utAmQNcVI5-pfq0wikDR7JCrGfZSg7tmxni4h_bOBMs2IDYg0lKdCWLF4L8");'></div>
+<p class="font-bold text-sm text-text-main dark:text-white">Agua Mineral</p>
+<p class="text-xs text-primary font-bold mb-2">$1.00</p>
+<button class="text-xs px-3 py-1 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-colors">Agregar</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="lg:w-[380px] shrink-0">
+<div class="sticky top-24 bg-white dark:bg-[#2c2219] p-6 lg:p-8 rounded-lg shadow-xl shadow-black/5 dark:shadow-black/20 border border-gray-100 dark:border-white/5 flex flex-col gap-6">
+<h2 class="text-xl font-bold text-text-main dark:text-white">Resumen del Pedido</h2>
+<div class="flex flex-col gap-3">
+<div class="flex justify-between text-text-sub dark:text-gray-400">
+<span>Subtotal</span>
+<span class="font-medium text-text-main dark:text-white">$14.50</span>
+</div>
+<div class="flex justify-between text-text-sub dark:text-gray-400">
+<span>IVA (8%)</span>
+<span class="font-medium text-text-main dark:text-white">$1.16</span>
+</div>
+<div class="flex justify-between text-green-600 dark:text-green-400 text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">local_offer</span> Descuento</span>
+<span class="font-medium">-$0.00</span>
+</div>
+<!-- Divider -->
+<div class="h-px bg-gray-100 dark:bg-white/10 my-2"></div>
+<div class="flex justify-between items-end">
+<span class="text-lg font-bold text-text-main dark:text-white">Total</span>
+<span class="text-3xl font-black text-primary tracking-tight">$15.66</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-3 mt-2">
+<button class="w-full h-14 bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white font-bold text-lg rounded-full shadow-lg shadow-primary/30 flex items-center justify-center gap-2 group">
+                            Comprar Ahora
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full h-12 text-text-sub dark:text-gray-400 hover:text-primary dark:hover:text-primary font-medium text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                            Seguir Comprando
+                        </button>
+</div>
+<!-- Helper info -->
+<div class="bg-primary/5 dark:bg-white/5 p-4 rounded-xl flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-xl shrink-0 mt-0.5">info</span>
+<p class="text-xs text-text-sub dark:text-gray-400 leading-relaxed">
+                            Al completar tu pedido, podrás pasar a recogerlo en la barra en aproximadamente <span class="font-bold text-text-main dark:text-white">10-15 minutos</span>.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto py-8 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-white/5">
+<div class="max-w-[1280px] mx-auto px-8 text-center text-text-sub dark:text-gray-500 text-sm">
+<p>© 2024 Cafetería Moderna. Todos los derechos reservados.</p>
+</div>
+</footer>
+</body></html>

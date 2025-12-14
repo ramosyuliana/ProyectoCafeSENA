@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirmación de Pedido - Café SENA</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-50 font-display transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6e0db] dark:border-white/10 px-10 py-4 bg-white dark:bg-[#2a2018]">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined !text-[32px]">local_cafe</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Café SENA</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Menú</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Mis Pedidos</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+<div class="flex gap-2">
+<button class="flex size-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-background-light dark:bg-white/10 text-slate-900 dark:text-white hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="flex size-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-background-light dark:bg-white/10 text-slate-900 dark:text-white hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col items-center justify-center p-4 sm:p-8">
+<div class="w-full max-w-[520px] bg-white dark:bg-[#2a2018] rounded-xl shadow-sm border border-[#e6e0db] dark:border-white/5 overflow-hidden">
+<!-- Success Image Area -->
+<div class="w-full h-48 bg-cover bg-center relative" data-alt="Barista pouring latte art into a coffee cup from above" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfdcMPgTyWU75MpS2SNUVHgLw6LJhW8X3OEcUPNNvPHp5Qc8TpyJRO_b0G_2BYDuFUZibmqIgJGa3q4gZWtsGP27JoFfcOpRSf3vadv4XpZhqbuicKfJjq5WXdegGQbwAgBwMLAyxJ5VG7o7a0cWUv-Uf_DWoJblJ_ymlE0q2BWE4PCwHEqFObdN6sj6mfE9o4MNd8JUJcVDp8x3_C3WThTekk9YwO6cNDqP9OznEGGgsPzjGzPgsvxYenHaXyZChNrsSs3AL2eBI");'>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center pb-4">
+<div class="flex items-center gap-2 bg-green-500/90 text-white px-4 py-1.5 rounded-full backdrop-blur-sm shadow-lg">
+<span class="material-symbols-outlined text-sm font-bold">check_circle</span>
+<span class="text-xs font-bold uppercase tracking-wide">Confirmado</span>
+</div>
+</div>
+</div>
+<div class="px-6 py-8 flex flex-col items-center text-center gap-6">
+<!-- Headlines -->
+<div class="space-y-2">
+<h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                            ¡Pedido realizado con éxito!
+                        </h1>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal max-w-xs mx-auto leading-relaxed">
+                            Gracias por tu compra en Café SENA. Estamos preparando tu café con mucho cariño.
+                        </p>
+</div>
+<!-- Order Details Card -->
+<div class="w-full bg-background-light dark:bg-white/5 rounded-lg p-5 border border-dashed border-[#e6e0db] dark:border-white/10">
+<div class="grid grid-cols-2 gap-4 divide-x divide-[#e6e0db] dark:divide-white/10">
+<div class="flex flex-col gap-1 items-center justify-center px-2">
+<span class="text-[#897561] dark:text-slate-400 text-xs font-bold uppercase tracking-wider">Número de Pedido</span>
+<span class="text-primary text-lg font-bold font-mono">#SENA-3492</span>
+</div>
+<div class="flex flex-col gap-1 items-center justify-center px-2">
+<span class="text-[#897561] dark:text-slate-400 text-xs font-bold uppercase tracking-wider">Tiempo Estimado</span>
+<div class="flex items-center gap-1.5 text-slate-900 dark:text-white">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-lg font-bold">15 min</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col w-full gap-3 pt-2">
+<button class="flex w-full items-center justify-center rounded-full h-12 px-6 bg-primary hover:bg-primary/90 text-white text-base font-bold tracking-wide transition-all transform hover:scale-[1.02]">
+                            Ver mis pedidos
+                        </button>
+<button class="flex w-full items-center justify-center rounded-full h-12 px-6 bg-transparent hover:bg-background-light dark:hover:bg-white/5 text-slate-600 dark:text-slate-300 text-base font-bold transition-colors">
+                            Pedir algo más
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="flex flex-col gap-6 px-5 py-10 text-center border-t border-[#e6e0db] dark:border-white/10 bg-white dark:bg-[#2a2018]">
+<div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+<a class="text-[#897561] dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Política de Privacidad</a>
+<a class="text-[#897561] dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Términos de Servicio</a>
+<a class="text-[#897561] dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Ayuda</a>
+</div>
+<p class="text-[#897561] dark:text-slate-500 text-sm font-normal">© 2023 Café SENA. Todos los derechos reservados.</p>
+</footer>
+</div>
+</body></html>

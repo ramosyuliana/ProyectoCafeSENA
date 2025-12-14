@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Historial de Pedidos - Café Brew</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#181411] dark:text-white font-display overflow-x-hidden min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6e0db] dark:border-[#332a23] bg-white dark:bg-[#1a1510] px-4 md:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined !text-[32px] icon-filled">local_cafe</span>
+</div>
+<h2 class="text-[#181411] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Café Brew</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-8">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-[#897561] dark:text-[#a69585] text-sm font-medium hover:text-primary transition-colors" href="#">Menú</a>
+<a class="text-primary text-sm font-bold leading-normal" href="#">Mis Pedidos</a>
+<a class="text-[#897561] dark:text-[#a69585] text-sm font-medium hover:text-primary transition-colors" href="#">Perfil</a>
+</nav>
+<div class="flex gap-3 items-center">
+<!-- Notification Bell with Badge -->
+<button class="relative flex items-center justify-center rounded-full h-10 w-10 bg-[#f4f2f0] dark:bg-[#2a221b] text-[#181411] dark:text-white hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 h-2.5 w-2.5 rounded-full bg-primary border-2 border-white dark:border-[#2a221b]"></span>
+</button>
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-[#f4f2f0] dark:bg-[#2a221b] text-[#181411] dark:text-white hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-white dark:ring-[#2a221b] cursor-pointer" data-alt="User profile picture showing a smiling young professional" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEeRS3OhCby7Jd3Xf2Ao1jYodpcH4g6Ou9LK6jyvYQZu9fWxmldHibB3uZl_DJAeD9Vlp1RMmWPytjDua-Y7F7rnsLsebFwhGNQO1r6AyZRQFdS8f1mndKwdxOLkZ7PG97f3vahzYEBOFbjx-4h7An2udMXapF7ugdkpjvKROg5psdhSVS8mSbCdUq1DA0jKjasRDdu7iof5cTSUS7c9G4H2X4ja80XxS0ftgLgBEDGwj05DjppB1o9zv7Qx2DqtG2fga4iSOyvYI");'>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center py-6 px-4 md:px-10">
+<div class="w-full max-w-[960px] flex flex-col gap-6">
+<!-- Active Notification Banner -->
+<div class="w-full bg-white dark:bg-[#1a1510] rounded-lg p-4 shadow-sm border border-primary/20 flex items-start md:items-center gap-4 animate-fade-in-up">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined icon-filled">coffee_maker</span>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-[#181411] dark:text-white text-base">¡Tu pedido #1234 está listo!</h3>
+<p class="text-[#897561] text-sm">Pasa por la barra para recoger tu Capuchino y Muffin.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white text-sm font-bold py-2 px-4 rounded-full transition-colors whitespace-nowrap">
+                    Ver Ticket
+                </button>
+</div>
+<!-- Page Heading -->
+<div class="flex flex-col gap-2">
+<h1 class="text-[#181411] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Mis Pedidos</h1>
+<p class="text-[#897561] text-base font-normal">Rastrea tus pedidos en curso y revisa tu historial de compras.</p>
+</div>
+<!-- Tabs -->
+<div class="border-b border-[#e6e0db] dark:border-[#332a23]">
+<div class="flex gap-8">
+<button class="relative pb-4 text-primary font-bold text-sm tracking-[0.015em] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-primary after:rounded-t-full">
+                        Pedidos Activos (1)
+                    </button>
+<button class="pb-4 text-[#897561] font-bold text-sm tracking-[0.015em] hover:text-[#181411] dark:hover:text-white transition-colors">
+                        Historial
+                    </button>
+</div>
+</div>
+<!-- Active Order Detail Card -->
+<section class="flex flex-col gap-4 mt-2">
+<h2 class="text-[#181411] dark:text-white text-xl font-bold">En Progreso</h2>
+<div class="bg-white dark:bg-[#1a1510] rounded-lg p-6 shadow-sm border border-[#f4f2f0] dark:border-[#332a23]">
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6">
+<div>
+<div class="flex items-center gap-3">
+<span class="text-2xl font-bold text-[#181411] dark:text-white">Pedido #1234</span>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Listo</span>
+</div>
+<p class="text-[#897561] text-sm mt-1">Estimado: Hace 2 min</p>
+</div>
+<div class="flex -space-x-2">
+<div class="w-10 h-10 rounded-full border-2 border-white dark:border-[#1a1510] bg-gray-200 bg-cover bg-center" data-alt="Cappuccino foam art" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgzO112O7wvUR--Xcapf5QJN1uNwPOAc7xA5e1fU3FJB5lYOLDUbr3b9-H9PZvIq8bjb7q-1XtNBkws-tNsSE8vAoQTdXo3cOuiq0f1TfRscF57XwMrWW94fS3AwhML8C59CU0R91smIyazT0DtBFRJGo_z88TBxl375H-LByfszdZZYMtc-8N28Ai9KAgqnqmNks_ZTK4pC-509sT9yzx9IVYsr6AJqfL40pO5plVMsVYSlFDwox1EU1W61_adOnMJkMzTxD_2yI');"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white dark:border-[#1a1510] bg-gray-200 bg-cover bg-center" data-alt="Blueberry muffin" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3TvX48H9YDKtkn4FC8sMfPTeMi_JiG_c_um6uDEVwtCXIBHWYDvZI3UovI_fY14bIx7ZOr7V85VfsEKAR8uVVbpH5aos0jdFhBzZGrPJikaWEWksQcm6dtkwyguw8G7UwiNdFPTe5ZzAjzUpmfn-wxvi8eydBJlpbq4yJNIVClPbCel4pXNiT9hY8Hpl4onFyX0c17xf7LJcw3pllCIMqEmLouSe8qZ7g8tY9LSgW1lAnelWYiGYOrnRBiBLXKuAgfV0MAx32BVE');"></div>
+</div>
+</div>
+<!-- Visual Progress Stepper -->
+<div class="relative mb-8 px-2">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-[#f4f2f0] dark:bg-[#2a221b] -translate-y-1/2 rounded-full z-0"></div>
+<div class="absolute top-1/2 left-0 w-full h-1 bg-primary -translate-y-1/2 rounded-full z-0"></div> <!-- Full width because status is Ready -->
+<div class="relative z-10 flex justify-between w-full">
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-2">
+<div class="size-8 rounded-full bg-primary text-white flex items-center justify-center ring-4 ring-white dark:ring-[#1a1510]">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+</div>
+<span class="text-xs font-bold text-primary">Recibido</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-2">
+<div class="size-8 rounded-full bg-primary text-white flex items-center justify-center ring-4 ring-white dark:ring-[#1a1510]">
+<span class="material-symbols-outlined text-sm">blender</span>
+</div>
+<span class="text-xs font-bold text-primary">Preparando</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-2">
+<div class="size-8 rounded-full bg-primary text-white flex items-center justify-center ring-4 ring-white dark:ring-[#1a1510]">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<span class="text-xs font-bold text-primary">Listo</span>
+</div>
+</div>
+</div>
+<div class="bg-[#f8f7f6] dark:bg-[#221910] rounded-lg p-4 flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-xs text-[#897561] font-bold uppercase tracking-wider">Total</span>
+<span class="text-lg font-bold text-[#181411] dark:text-white">$12.50</span>
+</div>
+<button class="text-sm font-bold text-[#181411] dark:text-white flex items-center gap-1 hover:underline">
+                            Ver detalles <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Past Orders Grid -->
+<section class="flex flex-col gap-4 mt-6">
+<h2 class="text-[#181411] dark:text-white text-xl font-bold">Pedidos Anteriores</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- History Card 1 -->
+<div class="bg-white dark:bg-[#1a1510] p-4 rounded-lg border border-[#f4f2f0] dark:border-[#332a23] shadow-sm flex gap-4 hover:border-primary/30 transition-colors group">
+<div class="size-20 bg-[#f4f2f0] dark:bg-[#2a221b] rounded-lg flex items-center justify-center shrink-0">
+<img alt="Latte art in a ceramic cup" class="size-20 rounded-lg object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQVGZDEKRnBAjlAqoZzIt6Ryn6Of5JqwljUPwyMYFMJQgkG9IZM-NSQaB-c4B1AU62VuBiSP_u4pfI_PIxVBbPrdN4aPROooiNhWn4kQBv49BJu0qIupUwiuAujEG7HDxcm7zOYAfK5ue61FXFBQ5BSMfW4jsPCal0wSAtvJH4Bfe050peNBoJIMMy8cjpAvXPfQYQecxqsn2WBIhNRclDNw9sDulRVegIWwmdIR-FoMsEvudBDpjHLcSj19J8mTaHk8qtsmxn460"/>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-[#181411] dark:text-white text-base">Latte Vainilla</h3>
+<span class="text-xs font-bold text-[#897561] bg-[#f4f2f0] dark:bg-[#2a221b] px-2 py-1 rounded-full">15 Oct</span>
+</div>
+<p class="text-sm text-[#897561] mt-1">Grande • Leche de Avena</p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<span class="font-bold text-[#181411] dark:text-white">$6.50</span>
+<button class="flex items-center gap-1 text-primary text-sm font-bold hover:bg-primary/10 px-3 py-1.5 rounded-full transition-colors -mr-2">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+                                    Repetir
+                                </button>
+</div>
+</div>
+</div>
+<!-- History Card 2 -->
+<div class="bg-white dark:bg-[#1a1510] p-4 rounded-lg border border-[#f4f2f0] dark:border-[#332a23] shadow-sm flex gap-4 hover:border-primary/30 transition-colors group">
+<div class="size-20 bg-[#f4f2f0] dark:bg-[#2a221b] rounded-lg flex items-center justify-center shrink-0">
+<img alt="Iced Americano in a tall glass" class="size-20 rounded-lg object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbn0KsaUTUvmKB8aZeZxrPBiCXcwF6s6Z7vJCkq4TWqYWVcHmBPniXovTvy9Viu7Quvq94BoPZxCGBxyitprBVQrNL6XPyMQmv8WQM3aDL8wSf8RAyOdURxp8HqY2nDGKtpiBOCoHz-5dFFpBzCcA7PN0AIYgKMBSiWbIuCmuoj9eGnch1S5AArPDVY6xvVWxw6xY3AKUKw5X4h652P6XB6XheF2Z8ZF3XlCKAL3vDpqwc5rvytSBExLVZFqagW8Tm90iVS2IGgIM"/>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-[#181411] dark:text-white text-base">Americano Helado</h3>
+<span class="text-xs font-bold text-[#897561] bg-[#f4f2f0] dark:bg-[#2a221b] px-2 py-1 rounded-full">12 Oct</span>
+</div>
+<p class="text-sm text-[#897561] mt-1">Mediano • Sin azúcar</p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<span class="font-bold text-[#181411] dark:text-white">$4.25</span>
+<button class="flex items-center gap-1 text-primary text-sm font-bold hover:bg-primary/10 px-3 py-1.5 rounded-full transition-colors -mr-2">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+                                    Repetir
+                                </button>
+</div>
+</div>
+</div>
+<!-- History Card 3 -->
+<div class="bg-white dark:bg-[#1a1510] p-4 rounded-lg border border-[#f4f2f0] dark:border-[#332a23] shadow-sm flex gap-4 hover:border-primary/30 transition-colors group">
+<div class="size-20 bg-[#f4f2f0] dark:bg-[#2a221b] rounded-lg flex items-center justify-center shrink-0">
+<img alt="Croissant on a plate" class="size-20 rounded-lg object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD57W_g49zlkYdcH8TSKSIAeG-mf3t5yM-ldmXs4kUWmsIFYcKoZTPikuW1YLDFgjZN9ZKCD59LkvVpkqH902kLvj8AI4zp3jS9P04a-bcjE9Z893WndpMrCo3cvLknCAlY1R2W7Y7nh44yiBXtkY5ry8qTT0pCcsvBut-suJsQBfpWAkFn37ByhXGE3jOGD_Wpt7J9sggwpSnZzJ-KAkdgJFnTPzXucS5ay3ncxf64O3Qlg5d64G8typ1CM674JApyHufKlcfbJeE"/>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-[#181411] dark:text-white text-base">Combo Desayuno</h3>
+<span class="text-xs font-bold text-[#897561] bg-[#f4f2f0] dark:bg-[#2a221b] px-2 py-1 rounded-full">10 Oct</span>
+</div>
+<p class="text-sm text-[#897561] mt-1">Croissant + Café del Día</p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<span class="font-bold text-[#181411] dark:text-white">$9.00</span>
+<button class="flex items-center gap-1 text-primary text-sm font-bold hover:bg-primary/10 px-3 py-1.5 rounded-full transition-colors -mr-2">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+                                    Repetir
+                                </button>
+</div>
+</div>
+</div>
+<!-- History Card 4 -->
+<div class="bg-white dark:bg-[#1a1510] p-4 rounded-lg border border-[#f4f2f0] dark:border-[#332a23] shadow-sm flex gap-4 hover:border-primary/30 transition-colors group">
+<div class="size-20 bg-[#f4f2f0] dark:bg-[#2a221b] rounded-lg flex items-center justify-center shrink-0">
+<img alt="Hot tea in a clear cup" class="size-20 rounded-lg object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3KBrUxoXaL1_LYohGixxonTKMl5dtgLnt5CSMUbQtw6L6o94ZOwS9RKyMwuMGXigtu8cw9-zoCMURipJxoxNw6oF8OiCu_BVk-cpS2m8KUvA-pon6e-99ukXu-fGTESRXbpjlUo5tLuwVySQ73lc5ptHTwVN9Z6fsEoU78IOssuwOBBH_APnCSAs1f0vXRayR70oITtCWRbdHkso50eDZeq4Zec8XeZSKPk2BedcoAF1cYBCozSo-Lht8KdAsEIhmyja8GD-CuBI"/>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-[#181411] dark:text-white text-base">Té Chai Latte</h3>
+<span class="text-xs font-bold text-[#897561] bg-[#f4f2f0] dark:bg-[#2a221b] px-2 py-1 rounded-full">08 Oct</span>
+</div>
+<p class="text-sm text-[#897561] mt-1">Grande • Especiado</p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<span class="font-bold text-[#181411] dark:text-white">$5.75</span>
+<button class="flex items-center gap-1 text-primary text-sm font-bold hover:bg-primary/10 px-3 py-1.5 rounded-full transition-colors -mr-2">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+                                    Repetir
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-4 pb-8">
+<button class="text-sm font-bold text-[#897561] hover:text-primary transition-colors flex items-center gap-2">
+                        Ver más antiguos
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+</body></html>
